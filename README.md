@@ -21,6 +21,7 @@ bow_transformer = CountVectorizer(analyzer=tokenize, max_features=800).fit(X)  #
 X = bow_transformer.transform(X)  # transforming all the reviews into vectors
 
 logistic_model = LogisticRegression()  #Creating a Logistical Regression Model
+nb_model = MultinomialNB() #Creating a Naive-Bayes model
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=101) #Splitting x and y into training a test data in a 80-20(4:1) ratio
 logistic_model.fit(X_train,y_train) #training the model on the traing data
 
